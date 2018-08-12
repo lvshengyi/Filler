@@ -8,6 +8,10 @@ public class Test {
     static Filler  filler = DefaultFiller.build();
 
     public static void main(String[] args) {
+        cInstance.a = new A();
+        cInstance.a.aInteger = 99;
+        cInstance.a.aString = "new string";
+
         filler.fill(cInstance);
 
         System.out.println(cInstance.a.aInteger);

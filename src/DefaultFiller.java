@@ -72,7 +72,8 @@ public class DefaultFiller implements Filler {
         for (Field field : unBaseDataTypeFieldList) {
             try {
                 final Class fieldClass = field.getType();
-                final Object instance = fieldClass.newInstance();
+                final Object oldInstance = field.get(obj);
+                final Object instance = oldInstance == null ? fieldClass.newInstance() : oldInstance;
 
                 field.set(obj, instance);
 
